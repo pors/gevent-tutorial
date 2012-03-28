@@ -637,9 +637,9 @@ Greenlets.
 
 <pre>
 <code class="python">import gevent
-from gevent.event import AsyncResult
+from gevent.event import Event
 
-a = AsyncResult()
+a = Event()
 
 def setter():
     """
@@ -653,7 +653,7 @@ def waiter():
     """
     After 3 seconds the get call will unblock.
     """
-    a.get() # blocking
+    a.wait() # blocking
     print 'I live!'
 
 gevent.joinall([
